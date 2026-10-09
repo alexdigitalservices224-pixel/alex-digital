@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#050b16">
+<meta name="description" content="Alex Digital provides affordable websites, branding, social media setup and professional business documents.">
+<title>Alex Digital | Websites, Design & Business Services</title>
+
+<style>
+:root {
+  --bg: #050b16;
+  --panel: #0b1424;
+  --blue: #078cff;
+  --red: #ff3045;
+  --white: #f5f8ff;
+  --muted: #a8b5c9;
+  --border: #1c3048;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background: var(--bg);
+  color: var(--white);
+  line-height: 1.65;
+}
+a { color: inherit; text-decoration: none; }
+.container { width: min(1120px, 92%); margin: auto; }
+header {
+  position: sticky; top: 0; z-index: 10;
+  background: rgba(5,11,22,.96);
+  border-bottom: 1px solid var(--border);
+  backdrop-filter: blur(12px);
+}
+nav {
+  min-height: 76px; display: flex;
+  justify-content: space-between; align-items: center;
+  gap: 20px;
+}
+.logo { font-size: 25px; font-weight: 900; letter-spacing: -1px; }
+.logo span { color: var(--blue); }
+.logo b { color: var(--red); }
+.navlinks { display: flex; gap: 22px; align-items: center; }
+.navlinks a { font-size: 14px; color: #dbe6f7; }
+.navlinks a:hover { color: var(--blue); }
+.btn {
+  display: inline-block; padding: 12px 22px;
+  border-radius: 8px; font-weight: bold;
+  background: var(--blue); color: white;
+  border: 1px solid var(--blue);
+  cursor: pointer; transition: .2s;
+}
+.btn:hover { transform: translateY(-2px); filter: brightness(1.15); }
+.btn-outline { background: transparent; border-color: var(--red); }
+.hero {
+  padding: 85px 0 90px;
+  background:
+    radial-gradient(ellipse at 85% 40%, #082a50 0%, transparent 48%),
+    radial-gradient(ellipse at 15% 10%, #300e22 0%, transparent 42%);
+  border-bottom: 1px solid var(--border);
+}
+.hero-grid {
+  display: grid; grid-template-columns: 1.15fr .85fr;
+  align-items: center; gap: 45px;
+}
+.eyebrow {
+  color: var(--blue); text-transform: uppercase;
+  font-size: 13px; letter-spacing: 2px; font-weight: bold;
+}
+h1 { font-size: clamp(39px, 6vw, 67px); line-height: 1.08; margin: 15px 0 20px; }
+.blue { color: var(--blue); }
+.red { color: var(--red); }
+.hero p { color: var(--muted); max-width: 540px; font-size: 17px; }
+.hero-actions { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 28px; }
+.hero-art {
+  min-height: 310px; display: grid; place-items: center;
+  position: relative; border: 1px solid #153c64;
+  border-radius: 25px; overflow: hidden;
+  background: linear-gradient(140deg,#0b1c35,#030710 65%,#240d1c);
+  box-shadow: 0 0 50px #007bff13;
+}
+.hero-art::before {
+  content: ""; position: absolute; width: 250px; height: 250px;
+  border: 2px solid var(--blue); border-radius: 50%;
+  box-shadow: 0 0 60px #078cff55, inset 0 0 60px #078cff20;
+}
+.hero-art::after {
+  content: ""; position: absolute; width: 180px; height: 180px;
+  border: 2px solid var(--red); transform: rotate(45deg);
+  box-shadow: 0 0 40px #ff304533;
+}
+.brand-mark { z-index: 1; font-size: 95px; font-weight: 900; }
+.brand-mark span { color: var(--red); }
+.brand-mark b { color: var(--blue); }
+.art-caption { position: absolute; bottom: 25px; z-index: 2;
+  font-size: 11px; letter-spacing: 3px; color: #c4d7f0; }
+
+section { padding: 75px 0; }
+.section-heading { margin-bottom: 30px; }
+.section-heading h2 { font-size: clamp(28px,4vw,40px); line-height: 1.2; margin: 8px 0; }
+.section-heading p { color: var(--muted); max-width: 650px; }
+.services-grid {
+  display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 20px;
+}
+.card {
+  background: linear-gradient(145deg,#0b1627,#070d18);
+  border: 1px solid var(--border);
+  border-radius: 15px; padding: 27px;
+  transition: .25s;
+}
+.card:hover { border-color: var(--blue); transform: translateY(-4px); }
+.card:nth-child(even):hover { border-color: var(--red); }
+.card-icon { font-size: 29px; margin-bottom: 8px; }
+.card h3 { font-size: 22px; margin-bottom: 15px; }
+.card ul { list-style: none; color: #d0d9e8; }
+.card li { margin: 8px 0; font-size: 14px; }
+.service-price { color: var(--blue); font-weight: bold; white-space: nowrap; }
+.card:nth-child(even) .service-price { color: var(--red); }
+.service-prices { margin-top: 18px; padding-top: 12px; border-top: 1px solid var(--border); color: var(--muted); font-size: 13px; }
+.service-prices p { display: flex; justify-content: space-between; gap: 12px; margin: 5px 0; }
+.service-prices strong { color: var(--white); white-space: nowrap; }
+.card li::before { content: "✓"; color: var(--blue); font-weight: bold; margin-right: 10px; }
+.card:nth-child(even) li::before { color: var(--red); }
+.card-link { display: inline-block; margin-top: 20px; color: var(--blue); font-weight: bold; }
+.pricing { background: #080f1c; border-block: 1px solid var(--border); }
+.price-grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 22px; }
+.price-card { padding: 32px; border: 1px solid var(--blue); border-radius: 15px; background: #060d19; }
+.price-card.featured { border: 2px solid var(--red); }
+.price-card h3 { font-size: 23px; }
+.price { font-size: 42px; font-weight: 900; color: var(--blue); margin: 10px 0; }
+.featured .price { color: var(--red); }
+.price-card p, .small-note { color: var(--muted); font-size: 14px; }
+.price-card ul { list-style: none; margin: 20px 0 25px; }
+.price-card li { margin: 9px 0; font-size: 14px; }
+.price-card li::before { content: "✓"; color: var(--blue); margin-right: 10px; font-weight: bold; }
+.featured li::before { color: var(--red); }
+.price-card .btn { width: 100%; text-align: center; }
+.note { margin-top: 20px; color: var(--muted); font-size: 13px; }
+
+.process-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 20px; }
+.step-number { color: var(--blue); font-size: 30px; font-weight: 900; }
+.step h3 { margin: 8px 0; }
+.step p { color: var(--muted); font-size: 14px; }
+
+.contact {
+  background: radial-gradient(ellipse at 50% 100%,#0a2140,transparent 70%);
+}
+.contact-box {
+  padding: 40px; border: 1px solid var(--border);
+  border-radius: 18px; text-align: center;
+  background: #080f1b;
+}
+.contact-box h2 { font-size: clamp(27px,4vw,40px); margin: 10px 0; }
+.contact-box p { color: var(--muted); margin: 8px auto 22px; }
+.email { display: block; color: var(--blue); overflow-wrap: anywhere; margin: 18px 0 25px; }
+footer { padding: 27px 0; border-top: 1px solid var(--border); }
+.footer-row { display: flex; justify-content: space-between; gap: 15px; flex-wrap: wrap; }
+footer p { color: var(--muted); font-size: 13px; }
+footer .logo { font-size: 21px; }
+
+@media(max-width:760px) {
+  nav { padding: 16px 0; align-items: flex-start; flex-direction: column; }
+  .navlinks { gap: 15px; width: 100%; overflow-x: auto; padding: 4px 0; }
+  .navlinks a { white-space: nowrap; }
+  .hero { padding: 55px 0; }
+  .hero-grid { grid-template-columns: 1fr; gap: 30px; }
+  .hero-art { min-height: 260px; }
+  .services-grid, .price-grid { grid-template-columns: 1fr; }
+  .process-grid { grid-template-columns: 1fr; }
+  section { padding: 55px 0; }
+  .card, .price-card { padding: 23px; }
+  .contact-box { padding: 28px 18px; }
+}
+</style>
+</head>
+
+<body>
+<header>
+  <nav class="container">
+    <a class="logo" href="#home" aria-label="Alex Digital home">
+      <b>A</b>LEX <span>DIGITAL</span>
+    </a>
+    <div class="navlinks">
+      <a href="#home">Home</a>
+      <a href="#services">Services</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#process">How It Works</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </nav>
+</header>
+
+<main>
+<section class="hero" id="home">
+  <div class="container hero-grid">
+    <div>
+      <div class="eyebrow">Your vision. Our digital solutions.</div>
+      <h1>BUILD YOUR BRAND.<br> <span class="blue">GROW ONLINE.</span></h1>
+      <p>
+        Welcome to Alex Digital — your partner for professional websites,
+        branding, social media setup and business documents.
+        Helping your ideas become a strong online presence.
+      </p>
+      <div class="hero-actions">
+        <a class="btn" href="#pricing">View Packages ↗</a>
+        <a class="btn btn-outline" href="#services">Explore Services</a>
+      </div>
+    </div>
+    <div class="hero-art" aria-label="Alex Digital brand artwork">
+      <div class="brand-mark"><span>A</span><b>D</b></div>
+      <div class="art-caption">YOUR DIGITAL JOURNEY STARTS HERE</div>
+    </div>
+  </div>
+</section>
+
+<section id="services">
+  <div class="container">
+    <div class="section-heading">
+      <div class="eyebrow">What we do</div>
+      <h2>Digital services. <span class="blue">Real possibilities.</span></h2>
+      <p>Practical services for individuals, entrepreneurs and businesses looking to establish and improve their digital presence.</p>
+    </div>
+
+    <div class="services-grid">
+      <article class="card">
+        <div class="card-icon">🌐</div>
+        <h3>Websites & Online Presence</h3>
+        <ul>
+          <li>Business websites</li>
+          <li>Landing pages</li>
+          <li>Online portfolios</li>
+          <li>Product/catalogue websites</li>
+          <li>Booking/appointment websites</li>
+          <li>Website maintenance and updates</li>
+          <li>Domain and business email setup</li>
+        </ul>
+        <div class="service-prices" aria-label="Website service prices">
+          <p><span>Landing page</span><strong>R300</strong></p>
+          <p><span>Online portfolio</span><strong>R400</strong></p>
+          <p><span>Product/catalogue website</span><strong>R600</strong></p>
+          <p><span>Booking website</span><strong>From R800</strong></p>
+          <p><span>Maintenance</span><strong>R100/update</strong></p>
+          <p><span>Domain & email setup</span><strong>R150 setup</strong></p>
+          <p><span>Basic website (1–5 pages)</span><strong>R500</strong></p>
+          <p><span>Business website (5–10 pages)</span><strong>R1,000</strong></p>
+        </div>
+        <a class="card-link" href="#pricing">View website prices →</a>
+      </article>
+
+      <article class="card">
+        <div class="card-icon">🎨</div>
+        <h3>Branding & Design</h3>
+        <ul>
+          <li>Logo design</li>
+          <li>Flyers and posters</li>
+          <li>Social-media graphics</li>
+          <li>Brand kits</li>
+          <li>Business cards and brochures as add-ons</li>
+        </ul>
+        <div class="service-prices" aria-label="Branding and design prices">
+          <p><span>Logo design</span><strong>R150</strong></p>
+          <p><span>Flyer or poster</span><strong>R100</strong></p>
+          <p><span>Social-media graphic</span><strong>R50 each</strong></p>
+          <p><span>Brand kit</span><strong>R250</strong></p>
+          <p><span>Business card design</span><strong>R80</strong></p>
+          <p><span>Brochure design</span><strong>R150</strong></p>
+        </div>
+        <a class="card-link" href="#contact">Request a design →</a>
+      </article>
+
+      <article class="card">
+        <div class="card-icon">📱</div>
+        <h3>WhatsApp & Social Media</h3>
+        <ul>
+          <li>WhatsApp Business setup</li>
+          <li>WhatsApp catalogue setup</li>
+          <li>WhatsApp Business profile optimisation</li>
+          <li>Click-to-WhatsApp links</li>
+          <li>Facebook business-page setup</li>
+          <li>Instagram business-page setup</li>
+          <li>Social-media content packages</li>
+        </ul>
+        <div class="service-prices" aria-label="WhatsApp and social media prices">
+          <p><span>WhatsApp Business setup</span><strong>R80</strong></p>
+          <p><span>WhatsApp catalogue setup</span><strong>R100</strong></p>
+          <p><span>Profile optimisation</span><strong>R80</strong></p>
+          <p><span>Click-to-WhatsApp link</span><strong>R30</strong></p>
+          <p><span>Facebook business page</span><strong>R100</strong></p>
+          <p><span>Instagram business page</span><strong>R100</strong></p>
+          <p><span>5 social-media graphics</span><strong>R250</strong></p>
+        </div>
+        <a class="card-link" href="#contact">Grow your presence →</a>
+      </article>
+
+      <article class="card">
+        <div class="card-icon">📄</div>
+        <h3>Business Documents</h3>
+        <ul>
+          <li>CVs and professional résumés</li>
+          <li>Cover letters</li>
+          <li>Invoice templates</li>
+          <li>Business proposal templates</li>
+          <li>Company profiles</li>
+        </ul>
+        <div class="service-prices" aria-label="Business document prices">
+          <p><span>CV / professional résumé</span><strong>R100</strong></p>
+          <p><span>Cover letter</span><strong>R50</strong></p>
+          <p><span>Invoice template</span><strong>R100</strong></p>
+          <p><span>Business proposal template</span><strong>R200</strong></p>
+          <p><span>Company profile</span><strong>R350</strong></p>
+        </div>
+        <a class="card-link" href="#contact">Request a document →</a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="pricing" id="pricing">
+  <div class="container">
+    <div class="section-heading">
+      <div class="eyebrow">Straightforward pricing</div>
+      <h2>Choose your <span class="blue">website package.</span></h2>
+      <p>Start with a simple online presence or choose a larger website for your business.</p>
+    </div>
+
+    <div class="price-grid">
+      <article class="price-card">
+        <h3>Basic Website</h3>
+        <p>For personal projects, portfolios and small online pages.</p>
+        <div class="price">R500</div>
+        <ul>
+          <li>1–5 pages</li>
+          <li>Mobile-friendly design</li>
+          <li>Basic SEO setup</li>
+          <li>Contact information or contact links</li>
+          <li>Clean, modern layout</li>
+        </ul>
+        <a class="btn" href="mailto:alexdigital.services224@gmail.com?subject=Basic%20Website%20Enquiry">Choose Basic</a>
+      </article>
+
+      <article class="price-card featured">
+        <h3>Business Website</h3>
+        <p>For businesses that need a more complete online presence.</p>
+        <div class="price">R1,000</div>
+        <ul>
+          <li>5–10 pages, depending on requirements</li>
+          <li>Custom-styled business design</li>
+          <li>Mobile-friendly layout</li>
+          <li>Basic SEO setup</li>
+          <li>Contact links and social-media links</li>
+          <li>Business information and service pages</li>
+        </ul>
+        <a class="btn btn-outline" href="mailto:alexdigital.services224@gmail.com?subject=Business%20Website%20Enquiry">Choose Business</a>
+      </article>
+    </div>
+    <p class="note">
+      Prices are starting package prices. Domain registration, hosting,
+      paid services, extra features and ongoing maintenance may cost extra.
+      The final scope and price will be agreed upon before work begins.
+    </p>
+  </div>
+</section>
+
+<section id="process">
+  <div class="container">
+    <div class="section-heading">
+      <div class="eyebrow">Simple process</div>
+      <h2>From idea to <span class="blue">online.</span></h2>
+      <p>A straightforward way to start your next project.</p>
+    </div>
+    <div class="process-grid">
+      <article class="card step">
+        <div class="step-number">01</div>
+        <h3>Tell us your idea</h3>
+        <p>Explain what you need, your goals and the type of service you want.</p>
+      </article>
+      <article class="card step">
+        <div class="step-number">02</div>
+        <h3>Agree on the details</h3>
+        <p>Confirm the price, design, features, timeline and any additional costs.</p>
+      </article>
+      <article class="card step">
+        <div class="step-number">03</div>
+        <h3>Build your project</h3>
+        <p>We'll work on the agreed deliverables and communicate about progress and final delivery.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="container">
+    <div class="contact-box">
+      <div class="eyebrow">Let's work together</div>
+      <h2>Have a project in mind?</h2>
+      <p>Tell us what you need. Let's find a digital solution that works for you.</p>
+      <a class="email" href="mailto:alexdigital.services224@gmail.com">
+        ✉️ alexdigital.services224@gmail.com
+      </a>
+      <a class="email" href="https://wa.me/27706667762" target="_blank" rel="noopener noreferrer">
+        💬 WhatsApp: 0706667762
+      </a>
+      <a class="btn" href="mailto:alexdigital.services224@gmail.com?subject=Alex%20Digital%20Enquiry">
+        Email Alex Digital ↗
+      </a>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="container footer-row">
+    <a class="logo" href="#home"><b>A</b>LEX <span>DIGITAL</span></a>
+    <p>Websites · Design · Social Media · Business Services</p>
+    <p>© <span id="year"></span> Alex Digital. All rights reserved.</p>
+  </div>
+</footer>
+
+<script>
+document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
